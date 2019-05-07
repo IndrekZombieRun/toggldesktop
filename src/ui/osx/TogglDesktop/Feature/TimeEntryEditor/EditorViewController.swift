@@ -174,7 +174,7 @@ final class EditorViewController: NSViewController {
     }
 
     @IBAction func deleteBtnOnTap(_ sender: Any) {
-        
+        DesktopLibraryBridge.shared().deleteTimeEntryImte(timeEntry)
     }
     
     private func presentTimeInputPopover() {
