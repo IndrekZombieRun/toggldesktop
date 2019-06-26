@@ -1,21 +1,23 @@
+os:
+  - linux
+  - osx
+  - windows
+osx_image: xcode10.1
 language: cpp
 compiler:
   - gcc
   - clang
 install: make deps > /dev/null
-script:
-  - source /opt/qt55/bin/qt55-env.sh && make clean && make qa
+script: make app
 branches:
   only:
     - master
 notifications:
   recipients:
-    - tanel.lebedev@gmail.com
+    - indzuliin@gmail.com
   email:
     on_success: change
     on_failure: always
 before_install:
-  - sudo apt-get install lcov
-  - sudo apt-add-repository -y ppa:beineri/opt-qt55
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install qt55tools qt55svg qt55webkit libxss-dev xorg-dev
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get -qq update          ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get install lcov libxss-dev build-essential libgl-dev libreadline-dev libssl-dev libqt5designer5 qttools5-dev qtbase5-private-dev          ; fi
