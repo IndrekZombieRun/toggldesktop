@@ -2,7 +2,7 @@ os:
   - linux
   - osx
   - windows
-osx_image: xcode10.1
+
 language: cpp
 compiler:
   - gcc
@@ -21,3 +21,9 @@ notifications:
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get -qq update          ; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get install lcov libxss-dev build-essential libgl-dev libreadline-dev libssl-dev libqt5designer5 qttools5-dev qtbase5-private-dev          ; fi
+matrix:
+  include:
+    - os: linux
+      dist: bionic
+    - os: osx
+      osx_image: xcode10.
