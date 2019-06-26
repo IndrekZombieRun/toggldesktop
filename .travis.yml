@@ -7,8 +7,7 @@ language: cpp
 compiler:
   - gcc
   - clang
-install: make deps > /dev/null
-script: make app
+
 branches:
   only:
     - master
@@ -24,7 +23,6 @@ addons:
       - lcov
       - libxss-dev
       - build-essential
-      - libgl-dev
       - libreadline-dev
       - libssl-dev
       - libqt5designer5
@@ -34,6 +32,11 @@ addons:
 matrix:
   include:
     - os: linux
+      script: make app
       dist: xenial
     - os: osx
+      install: make deps > /dev/null
+      script: make app_release
       osx_image: xcode10.1
+    - os: windows
+      solution: src/ui/windows/TogglDesktop/TogglDesktop.sln /p:Configuration=Release /t:TogglDesktop:Clean
