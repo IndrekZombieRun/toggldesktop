@@ -19,7 +19,7 @@ notifications:
     on_success: change
     on_failure: always
 before_install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get -qq update; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get update; fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; sudo apt-get install lcov libxss-dev build-essential libgl-dev libreadline-dev libssl-dev libqt5designer5 qttools5-dev qtbase5-private-dev; fi
 matrix:
   include:
