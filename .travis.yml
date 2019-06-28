@@ -16,4 +16,6 @@ notifications:
     on_success: change
     on_failure: always
 
-solution: src/ui/windows/TogglDesktop/TogglDesktop.sln /p:Configuration=Release /t:TogglDesktop:Clean
+solution: src/ui/windows/TogglDesktop/TogglDesktop.sln
+script:
+- xbuild src/ui/windows/TogglDesktop/TogglDesktop.sln
