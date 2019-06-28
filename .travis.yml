@@ -15,7 +15,8 @@ notifications:
   email:
     on_success: change
     on_failure: always
-
+mono: none
+dotnet: 2.1.502trwin4
 solution: src/ui/windows/TogglDesktop/TogglDesktop.sln
 script:
-- xbuild src/ui/windows/TogglDesktop/TogglDesktop.sln
+- msbuild src/ui/windows/TogglDesktop/TogglDesktop.sln /p:Configuration=Release /t:TogglDesktop:Clean
