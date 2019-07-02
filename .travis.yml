@@ -1,7 +1,7 @@
 os:
-  - windows
+  - osx
 
-language: csharp
+language: cpp
 compiler:
   - gcc
   - clang
@@ -15,8 +15,6 @@ notifications:
   email:
     on_success: change
     on_failure: always
-mono: none
-dotnet: 2.1
-solution: src/ui/windows/TogglDesktop/TogglDesktop.sln
-script:
-- msbuild src/ui/windows/TogglDesktop/TogglDesktop.sln /p:Configuration=Release /t:TogglDesktop:Clean
+install: make deps > /dev/null
+  script: make app_release
+  osx_image: xcode10.1
