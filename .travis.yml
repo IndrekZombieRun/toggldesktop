@@ -15,5 +15,16 @@ notifications:
   email:
     on_success: change
     on_failure: always
+addons:
+  apt:
+    packages:
+      - lcov
+      - libxss-dev
+      - build-essential
+      - libreadline-dev
+      - libssl-dev
+      - libqt5designer5
+      - qttools5-dev
+      - qtbase5-private-dev
 script: make app
 dist: xenial
