@@ -26,5 +26,7 @@ addons:
       - libqt5designer5
       - qttools5-dev
       - qtbase5-private-dev
-script: make app
+script: 
+  - exportCMAKE_PREFIX_PATH="$HOME/Qt/latest/gcc_64/lib/cmake/"
+  - make app
 dist: xenial
