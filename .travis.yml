@@ -1,5 +1,5 @@
 os:
-  - osx
+  - linux
 
 language: cpp
 compiler:
@@ -15,6 +15,5 @@ notifications:
   email:
     on_success: change
     on_failure: always
-install: make deps > /dev/null
-script: make app_release
-osx_image: xcode10.1
+script: make app
+dist: xenial
